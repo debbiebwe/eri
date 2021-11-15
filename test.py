@@ -4,3 +4,7 @@ def test():
 
 def test1():
     print("bwe")
+
+
+def test2():
+    print(111)
