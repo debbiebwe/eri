@@ -6,4 +6,5 @@ def test_func1():
 
 
 def test_func1_2():
-    assert func1() == 3
+    x = x-1
+    assert func1() == 1
