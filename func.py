@@ -1,5 +1,5 @@
-def test():
-    print(1)
+def func1():
+    return 1
 
 
 def test1():
