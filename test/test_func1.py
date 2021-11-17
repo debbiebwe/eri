@@ -1,10 +1,13 @@
-from func import func1
+from func import PokerGame
 
 
-def test_func1():
-    assert func1() == 1
+def test_nothing_winner():
+    game = PokerGame("1C 2H 6S 9S TD", "2C 4H 5S 8S 9D")
+    assert game.result() == "Player1 win the game"
 
 
-def test_func1_2():
-    x = x-1
-    assert func1() == 1
+# 10 = T
+# 紅心 = H
+# 方塊 = D
+# 黑桃 = S
+# 梅花 = C
