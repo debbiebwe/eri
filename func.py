@@ -21,6 +21,12 @@
     result: No winner
 """
 
+poker_order = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "1"]
+
+
+def get_order(card):
+    return poker_order.index(card)
+
 
 class PokerGame():
 
@@ -31,3 +37,11 @@ class PokerGame():
     def result(self):
         player1_list = self.player1.split(" ")
         player2_list = self.player2.split(" ")
+        player1_list_num = [get_order(x[0]) for x in player1_list]
+        player2_list_num = [get_order(x[0]) for x in player2_list]
+        player1_max = max(player1_list_num)
+        player2_max = max(player2_list_num)
+        if player1_max > player2_max:
+            return "Player1 win the game"
+        elif player1_max < player2_max:
+            return "Player2 win the game"
