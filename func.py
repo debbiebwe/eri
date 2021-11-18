@@ -35,13 +35,19 @@ class PokerGame():
         self.player2 = player2
 
     def result(self):
-        player1_list = self.player1.split(" ")
+        player1_list = self.player1.split(" ")  # ["1C", "2S"]
         player2_list = self.player2.split(" ")
-        player1_list_num = [get_order(x[0]) for x in player1_list]
+        player1_list_num = [get_order(x[0]) for x in player1_list]  # [0, 13]
         player2_list_num = [get_order(x[0]) for x in player2_list]
         player1_max = max(player1_list_num)
         player2_max = max(player2_list_num)
+
+        player1_max_card_index = player1_list_num.index(player1_max)
+        player2_max_card_index = player2_list_num.index(player2_max)
+
         if player1_max > player2_max:
-            return "Player1 win the game"
+            return f"Player1 win the game with nothing {player1_list[player1_max_card_index]}"
         elif player1_max < player2_max:
-            return "Player2 win the game"
+            return f"Player2 win the game with nothing {player2_list[player2_max_card_index]}"
+        else:
+            return "No winner"
