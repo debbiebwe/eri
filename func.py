@@ -35,22 +35,23 @@ class PokerGame():
         self.player2 = player2
 
     def result(self):
-        player1_list = self.player1.split(" ")  # ["1C", "2S"]  [Card("1C")]
+        player1_list = self.player1.split(" ")  # ["1C", "2S"]
         player2_list = self.player2.split(" ")
-        player1_list_num = [get_order(x[0]) for x in player1_list]  # [0, 13]
-        player2_list_num = [get_order(x[0]) for x in player2_list]
-        player1_max = max(player1_list_num)
-        player2_max = max(player2_list_num)
+        player1_list_num = [Card(x) for x in player1_list]  # [Card("1C")]
+        player2_list_num = [Card(x) for x in player2_list]
+        player1_list_num.sort()
+        player2_list_num.sort()
+        print("player1_list_num: ", player1_list_num)
 
-        player1_max_card_index = player1_list_num.index(player1_max)
-        player2_max_card_index = player2_list_num.index(player2_max)
+        # player1_max_card_index = player1_list_num.index(player1_max)
+        # player2_max_card_index = player2_list_num.index(player2_max)
 
-        if player1_max > player2_max:
-            return f"Player1 win the game with nothing {player1_list[player1_max_card_index]}"
-        elif player1_max < player2_max:
-            return f"Player2 win the game with nothing {player2_list[player2_max_card_index]}"
-        else:
-            return "No winner"
+        # if player1_max > player2_max:
+        #     return f"Player1 win the game with nothing {player1_list[player1_max_card_index]}"
+        # elif player1_max < player2_max:
+        #     return f"Player2 win the game with nothing {player2_list[player2_max_card_index]}"
+        # else:
+        #     return "No winner"
 
 
 class Card():
@@ -78,3 +79,17 @@ class Card():
 
     def __le__(self, other):
         return self.num <= other.num
+
+    # def __str__(self):
+        # return f"card {self.value}"
+
+    def __repr__(self):
+        # return self.__str__()
+        return f"card {self.value}"
+
+
+x = PokerGame("1C 2H 6S 9S TD", "2C 4H 5S 8S 9D")
+x.result()
+
+# y = Card("9H")
+# print(str(y))
