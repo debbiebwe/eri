@@ -35,7 +35,7 @@ class PokerGame():
         self.player2 = player2
 
     def result(self):
-        player1_list = self.player1.split(" ")  # ["1C", "2S"]
+        player1_list = self.player1.split(" ")  # ["1C", "2S"]  [Card("1C")]
         player2_list = self.player2.split(" ")
         player1_list_num = [get_order(x[0]) for x in player1_list]  # [0, 13]
         player2_list_num = [get_order(x[0]) for x in player2_list]
@@ -54,7 +54,6 @@ class PokerGame():
 
 
 class Card():
-
     def __init__(self, value):
         self.value = value
         self.num = get_order(value[0])
@@ -62,7 +61,20 @@ class Card():
     def __eq__(self, other):
         return self.num == other.num
 
+    def __gt__(self, other):
+        return self.num > other.num
 
-x = Card("9C")
-y = Card("9S")
-print(x == y)
+    def __lt__(self, other):
+        return self.num < other.num
+
+    def __ne__(self, other):
+        return self.num != other.num
+
+    def __ne__(self, other):
+        return self.num != other.num
+
+    def __ge__(self, other):
+        return self.num >= other.num
+
+    def __le__(self, other):
+        return self.num <= other.num
