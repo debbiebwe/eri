@@ -13,9 +13,9 @@
     result: Player2 win
 
 雙方相同牌型
-    player1:  55441
-    player2:  55332
-    result: Player1 win the game with two pair 44
+    player1:  5H 5D 4S 4C 1C
+    player2:  5S 5C 3H 3D 2D
+    result: Player1 win the game with two pair 4S 4C
 
 平手
     result: No winner
