@@ -51,3 +51,18 @@ class PokerGame():
             return f"Player2 win the game with nothing {player2_list[player2_max_card_index]}"
         else:
             return "No winner"
+
+
+class Card():
+
+    def __init__(self, value):
+        self.value = value
+        self.num = get_order(value[0])
+
+    def __eq__(self, other):
+        return self.num == other.num
+
+
+x = Card("9C")
+y = Card("9S")
+print(x == y)

@@ -16,6 +16,11 @@ def test_nothing_winner_jqk_2():
     assert game.result() == "Player2 win the game with nothing KS"
 
 
+def test_nothing_winner_jqk_3():
+    game = PokerGame("KC QH 6S 9S TD", "2C JH KS 8S 9D")
+    assert game.result() == "Player1 win the game with nothing QH"
+
+
 def test_nothing_no_winner():
     game = PokerGame("1C 2H 6S 8S KD", "2C 1H KS 8D 6D")
     assert game.result() == "No winner"
